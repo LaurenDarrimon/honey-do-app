@@ -1,8 +1,9 @@
-//react hooks
+// create custom react react hook for authorization
 
 
 import { useEffect, useState } from "react";
 import { auth } from "../firebase";
+
 
 const useAuth = () => {
     //manage the state of a user being loged in (or not) 
