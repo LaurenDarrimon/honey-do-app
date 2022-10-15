@@ -1,7 +1,4 @@
-//react component
-
 import React from "react";
-
 import {
   Box,
   Input,
@@ -11,59 +8,39 @@ import {
   Select,
   useToast,
 } from "@chakra-ui/react";
-
 import useAuth from "../hooks/useAuth";
-
 import { addTodo } from "../api/todo";
-
 const AddTodo = () => {
-  //state
   const [title, setTitle] = React.useState("");
   const [description, setDescription] = React.useState("");
-  const [status, setStatus] = React.useState("");
-  const [isLoading, setIsLoading] = React.useState("");
-
-  const toast = useToast(); //from Chakra - message popup
-
-  const { isLoggedIn, user } = useAuth || {};
-
-  //define add todo handler function
-
+  const [status, setStatus] = React.useState("pending");
+  const [isLoading, setIsLoading] = React.useState(false);
+  const toast = useToast();
+  const { isLoggedIn, user } = useAuth();
   const handleTodoCreate = async () => {
     if (!isLoggedIn) {
       toast({
-        title: "Please login to create a Honey Do ",
+        title: "You must be logged in to create a todo",
         status: "error",
         duration: 9000,
         isClosable: true,
       });
       return;
     }
-
     setIsLoading(true);
-    //build object value template
-
     const todo = {
       title,
       description,
       status,
       userId: user.uid,
     };
-    //call api function to add new doc to firestore collection
     await addTodo(todo);
-
     setIsLoading(false);
     setTitle("");
     setDescription("");
     setStatus("pending");
-
-    toast({
-      title: "Honey Do created!",
-      status: "success",
-    });
+    toast({ title: "Todo created successfully", status: "success" });
   };
-
-  //JSX markup
   return (
     <Box w="40%" margin={"0 auto"} display="block" mt={5}>
       <Stack direction="column">
@@ -94,7 +71,7 @@ const AddTodo = () => {
         <Button
           onClick={() => handleTodoCreate()}
           disabled={title.length < 1 || description.length < 1 || isLoading}
-          variantColor="teal"
+          colorScheme="teal"
           variant="solid"
         >
           Add
@@ -103,5 +80,4 @@ const AddTodo = () => {
     </Box>
   );
 };
-
 export default AddTodo;

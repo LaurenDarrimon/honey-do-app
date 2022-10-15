@@ -88,7 +88,7 @@ const TodoList = () => {
           todos.map((todo) => (
             <Box
               p={3}
-              key={index}
+              key={todo.id}
               boxShadow="2xl"
               shadow={"dark-lg"}
               transition="0.2s"
