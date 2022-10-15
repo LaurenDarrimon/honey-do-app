@@ -19,7 +19,7 @@ import { deleteTodo, toggleTodoStatus } from "../api/todo";
 
 const TodoList = () => {
   const [todos, setTodos] = React.useState([]);
-  const { user } = useAuth();
+  const { user } = useAuth() || {};
   const toast = useToast();
 
   //nested fxn to update todod list from firestore
