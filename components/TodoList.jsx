@@ -22,9 +22,10 @@ const TodoList = () => {
   const { user } = useAuth() || {};
   const toast = useToast();
 
-  //nested fxn to update todod list from firestore
 
-  const refreshData = () => {
+  //tell react to update UI
+  useEffect(() => {
+      //nested fxn to update todod list from firestore
     if (!user) {
       setTodos([]);
       return;
@@ -49,11 +50,6 @@ const TodoList = () => {
       //after loop, now we have array of todo docs in ar
       setTodos(ar);
     });
-  };
-
-  //tell react to update UI
-  useEffect(() => {
-    refreshData();
   }, [user]);
 
   //build detele item handler
@@ -95,15 +91,14 @@ const TodoList = () => {
               _hover={{ boxShadow: "sm" }}
             >
               <Heading as="h3" fontSize={"xl"}>
-                {todo.title}
-                {" "}
+                {todo.title}{" "}
                 <Badge
                   color="red.500"
                   bg="inherit"
                   transition={"0.2s"}
                   _hover={{
                     bg: "inherit",
-                    transform: "scale(1.2)"
+                    transform: "scale(1.2)",
                   }}
                   float="right"
                   size="xs"
@@ -117,7 +112,7 @@ const TodoList = () => {
                   transition={"0.2s"}
                   _hover={{
                     bg: "inherit",
-                    transform: "scale(1.2)"
+                    transform: "scale(1.2)",
                   }}
                   float="right"
                   size="xs"
