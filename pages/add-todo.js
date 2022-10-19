@@ -3,7 +3,7 @@ import AddTodo from "../components/AddTodo";
 import Auth from "../components/Auth";
 
 
-export default function AddToDoComponent() {
+export default function AddToDoPage() {
   return (
       <Container maxW="7xl">
       <Auth />

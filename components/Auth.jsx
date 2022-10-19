@@ -30,23 +30,33 @@ const Auth = () => {
       });
   };
   return (
-    <Box position={"fixed"} top="5%" right="5%">
-      <Button onClick={() => toggleColorMode()}>
-        {colorMode == "dark" ? <FaSun /> : <FaMoon />}
-      </Button>{" "}
-      {isLoggedIn && (
-        <>
-          <Text color="green.500">{user.email}</Text>
-          <Link color="red.500" onClick={() => auth.signOut()}>
-            Logout
+    <Box display="flex" alignItems="center" justifyContent="space-between">
+      <Box>
+          <Link href="/add-todo"> Add Honey Do 
           </Link>
-        </>
-      )}
-      {!isLoggedIn && (
-        <Button leftIcon={<FaGoogle />} onClick={() => handleAuth()}>
-          Login with Google
-        </Button>
-      )}
+      </Box>
+      <Box>
+        <Link href = "/"> Home to Honey Do List
+          </Link>
+      </Box>
+      <Box textAlign="right">
+            <Button onClick={() => toggleColorMode()}>
+              {colorMode == "dark" ? <FaSun /> : <FaMoon />}
+            </Button>{" "}
+            {isLoggedIn && (
+              <>
+                <Text color="green.500">{user.email}</Text>
+                <Link color="red.500" onClick={() => auth.signOut()}>
+                  Logout
+                </Link>
+              </>
+            )}
+            {!isLoggedIn && (
+              <Button leftIcon={<FaGoogle />} onClick={() => handleAuth()}>
+                Login with Google
+              </Button>
+            )}
+      </Box>
     </Box>
   );
 };
