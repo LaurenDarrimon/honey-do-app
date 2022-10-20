@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Box,
+  Heading,
   Input,
   Button,
   Textarea,
@@ -43,6 +44,7 @@ const AddEvent = () => {
   };
   return (
     <Box w="40%" margin={"0 auto"} display="block" mt={5}>
+    <Heading as="h2">📅  Add New Event</Heading>
       <Stack direction="column">
         <Input
           placeholder="Title"

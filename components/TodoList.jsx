@@ -4,6 +4,7 @@ import {
   Badge,
   Box,
   Heading,
+  Link,
   SimpleGrid,
   Text,
   useToast,
@@ -79,7 +80,7 @@ const TodoList = () => {
 
   return (
     <Box mt={5}>
-      <h2>Honey Do List</h2>
+      <Heading as="h2">🍈 Honey Do List</Heading>
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
         {todos &&
           todos.map((todo) => (
@@ -92,7 +93,7 @@ const TodoList = () => {
               _hover={{ boxShadow: "sm" }}
             >
               <Heading as="h3" fontSize={"xl"}>
-                {todo.title}{" "}
+                <Link href={`/todo/${todo.id}`}>{todo.title}{" "}</Link>
                 <Badge
                   color="red.500"
                   bg="inherit"

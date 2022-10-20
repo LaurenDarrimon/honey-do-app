@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Box,
+  Heading,
   Input,
   Button,
   Textarea,
@@ -43,6 +44,7 @@ const AddTodo = () => {
   };
   return (
     <Box w="40%" margin={"0 auto"} display="block" mt={5}>
+      <Heading as="h2">🍈 Add New Honey Do Item</Heading>
       <Stack direction="column">
         <Input
           placeholder="Title"

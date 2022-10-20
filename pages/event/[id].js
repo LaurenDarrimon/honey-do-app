@@ -7,6 +7,7 @@ import {
 } from "@chakra-ui/react";
 
 import useAuth from "../../hooks/useAuth";
+import Auth from "../../components/Auth";
 
 import { doc, getDoc } from "firebase/firestore";
 
@@ -26,7 +27,11 @@ const EventItem = ({itemData}) =>{
 
     //return jsx 
     return (
-        <Box mt={(5)}>
+        <Box m={8}>
+            <Auth></Auth>
+            <Heading as="h1" fontSize={"xl"}>
+                Single Event Details:
+            </Heading>
             <Heading as="h3" fontSize={"xl"}>
                 {itemData.title}
             </Heading>

@@ -8,6 +8,8 @@ import {
 } from "@chakra-ui/react";
 
 import useAuth from "../../hooks/useAuth";
+import Auth from "../../components/Auth";
+
 
 import { doc, getDoc } from "firebase/firestore";
 
@@ -27,8 +29,12 @@ const TodoItem = ({itemData}) =>{
 
     //return jsx 
     return (
-        <Box mt={(5)}>
-            <Heading as="h3" fontSize={"xl"}>
+        <Box m={9}>
+            <Auth></Auth>
+            <Heading as="h1" fontSize={"xl"}>
+                Single Honey Do 🍈 Details:
+            </Heading>
+            <Heading as="h3" fontSize={"l"}>
                 {itemData.title}
             </Heading>
             <Text>

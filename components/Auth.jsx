@@ -16,7 +16,7 @@ const Auth = () => {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-        // ...
+
       })
       .catch((error) => {
         // Handle Errors here.
@@ -26,17 +26,17 @@ const Auth = () => {
         const email = error.customData.email;
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
+
       });
   };
   return (
     <Box display="flex" alignItems="center" justifyContent="space-between">
       <Box>
-          <Link href="/add-todo"> Add Honey Do 
+          <Link href="/add-todo"> Add New 
           </Link>
       </Box>
       <Box>
-        <Link href = "/"> Home to Honey Do List
+        <Link href = "/"> All Lists
           </Link>
       </Box>
       <Box textAlign="right">

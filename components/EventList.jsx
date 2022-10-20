@@ -4,6 +4,7 @@ import {
   Badge,
   Box,
   Heading,
+  Link,
   SimpleGrid,
   Text,
   useToast,
@@ -79,7 +80,7 @@ const EventList = () => {
 
   return (
     <Box mt={5}>
-    <h2>Event List</h2>
+    <Heading as="h2">📅  Events List</Heading>
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
         {events &&
           events.map((event) => (
@@ -92,7 +93,7 @@ const EventList = () => {
               _hover={{ boxShadow: "sm" }}
             >
               <Heading as="h3" fontSize={"xl"}>
-                {event.title}{" "}
+              <Link href={`/event/${event.id}`}>{event.title}{" "}</Link>
                 <Badge
                   color="red.500"
                   bg="inherit"
