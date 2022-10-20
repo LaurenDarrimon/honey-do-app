@@ -65,7 +65,7 @@ const EventList = () => {
 
   //build nested function to toggle event status
 
-  const handleToggle = async (id, status) => {
+  const handleEventToggle = async (id, status) => {
     const newStatus = status == "completed" ? "pending" : "completed";
     await toggleEventStatus({
       docId: id,
@@ -79,6 +79,7 @@ const EventList = () => {
 
   return (
     <Box mt={5}>
+    <h2>Event List</h2>
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
         {events &&
           events.map((event) => (
@@ -116,7 +117,7 @@ const EventList = () => {
                   }}
                   float="right"
                   size="xs"
-                  onClick={() => handleToggle(event.id, event.status)}
+                  onClick={() => handleEventToggle(event.id, event.status)}
                 >
                   {event.status == "pending" ? <FaToggleOff /> : <FaToggleOn />}
                 </Badge>
@@ -128,7 +129,6 @@ const EventList = () => {
                   {event.status}
                 </Badge>
               </Heading>
-              <Text>{event.eventDate}</Text>
               <Text>{event.description}</Text>
             </Box>
           ))}

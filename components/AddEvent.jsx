@@ -14,7 +14,6 @@ const AddEvent = () => {
   const [title, setTitle] = React.useState("");
   const [description, setDescription] = React.useState("");
   const [status, setStatus] = React.useState("pending");
-  const [eventDate, setEventDate] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
   const toast = useToast();
   const { isLoggedIn, user } = useAuth();
@@ -33,7 +32,6 @@ const AddEvent = () => {
       title,
       description,
       status,
-      eventDate,
       userId: user.uid,
     };
     await addEvent(event);
@@ -41,7 +39,6 @@ const AddEvent = () => {
     setTitle("");
     setDescription("");
     setStatus("pending");
-    setEventDate("");
     toast({ title: "Event created successfully", status: "success" });
   };
   return (
@@ -56,11 +53,6 @@ const AddEvent = () => {
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-        />
-        <Input
-          placeholder="eventDate"
-          value={eventDate}
-          onChange={(e) => setEventDate(e.target.value)}
         />
         <Select value={status} onChange={(e) => setStatus(e.target.value)}>
           <option

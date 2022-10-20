@@ -21,7 +21,6 @@ const addEvent = async( { userId, title, description, status } ) => {
                 description: description,
                 status: status,
                 createdAt: new Date().getTime(),
-                eventDate: eventDate,
             }
         );
     } catch (error) {
