@@ -9,13 +9,23 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBpg86LfxXUASuZeAct6OzoaHSUxeeXuu8",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: "honey-do-3992d.firebaseapp.com",
   projectId: "honey-do-3992d",
   storageBucket: "honey-do-3992d.appspot.com",
-  messagingSenderId: "63605119569",
-  appId: "1:63605119569:web:d0aea61958845bb13ff670"
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
+
+// // Your web app's Firebase configuration
+// const firebaseConfig = {
+//   apiKey: "AIzaSyBpg86LfxXUASuZeAct6OzoaHSUxeeXuu8",
+//   authDomain: "honey-do-3992d.firebaseapp.com",
+//   projectId: "honey-do-3992d",
+//   storageBucket: "honey-do-3992d.appspot.com",
+//   messagingSenderId: "63605119569",
+//   appId: "1:63605119569:web:d0aea61958845bb13ff670"
+// };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

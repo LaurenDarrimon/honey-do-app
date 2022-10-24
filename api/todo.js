@@ -5,6 +5,7 @@ import {
     collection, 
     addDoc, 
     updateDoc, 
+    setDoc,
     doc, 
     deleteDoc
 } from "firebase/firestore";
@@ -46,6 +47,29 @@ const toggleTodoStatus = async ( { docId, status } ) => {
     }
 }
 
+const updateTodo = async ( { docId, status } ) => {
+    try {
+        //grab ref to existing firestore document 
+        const todoRef = doc( db, "todo", docId );
+
+        //update that doc
+
+        await setDoc(
+            todoRef, 
+            {
+                user: userId,
+                title: title,
+                description: description,
+                status: status,
+                createdAt: new Date().getTime(),
+            },
+            {merge: true}
+        )
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 const deleteTodo = async ( docId ) => {
     try {
        
@@ -61,4 +85,4 @@ const deleteTodo = async ( docId ) => {
     }
 }
 
-export { addTodo, toggleTodoStatus, deleteTodo }
+export { addTodo, toggleTodoStatus, updateTodo, deleteTodo }

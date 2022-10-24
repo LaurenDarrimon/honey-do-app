@@ -10,6 +10,7 @@ import {
 import useAuth from "../../hooks/useAuth";
 import Auth from "../../components/Auth";
 
+import { updateTodo } from "../../api/todo";
 
 import { doc, getDoc } from "firebase/firestore";
 
