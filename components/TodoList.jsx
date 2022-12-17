@@ -37,6 +37,7 @@ const TodoList = () => {
       collection(db, "todo"),
       where("user", "==", user.uid) //only get back documents thaht match current user
     );
+
     //event handler w/ firebase
     onSnapshot(q, (querySnapshot) => {
       //in this fxn we hold results from the query

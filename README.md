@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+Honey Do is a Full Stack to-do list app built with a FireBase Firestore Database. It uses the Next.js framework and React.js. Users log in using Firestore's Google-based authorization, in other words, users login through their Google account.  Once logged in can create to-do list items and events. To-do list items, the users who create them, and events are all connected via foreign keys in the database. Items and events are built on dynamically rendered pages, and each on will have its own unique URL, based on its ID. The site can toggle back and forth between a light mode and a dark mode. 
+
 ## Getting Started
 
 First, run the development server:
@@ -17,6 +19,8 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+
 
 ## Learn More
 
